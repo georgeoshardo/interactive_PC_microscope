@@ -46,7 +46,6 @@ def get_kernel(scale,radius,F,condenser):
 scale = 9000
 mult=2.4
 radius = 5
-#image = Image.open("/home/georgeoshardo/Documents/MMSynth_data/DELTA_eval_movie/synthetic_render_output/20200818-153305/PHASE_CONTRAST_INPUT/0040.png")
 
 def get_image(scale=scale,mult=mult,radius=radius, condenser="Ph2",resolution=100,F=60):
     resolution = int(resolution)
@@ -61,7 +60,7 @@ def get_image(scale=scale,mult=mult,radius=radius, condenser="Ph2",resolution=10
     img = img.reshape(resolution,resolution)
     convolved = signal.convolve2d(img, kernel,mode="same",boundary="fill")
     print("max {}, min {}".format(np.max(kernel), np.min(kernel)))
-    return (convolved)
+    return (kernel)
 fig, ax = plt.subplots()
 l= plt.imshow(get_image(),cmap="Greys")
 plt.axis("off")
